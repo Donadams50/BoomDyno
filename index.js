@@ -24,7 +24,7 @@ app.post('/subcribtion', async(req, res) =>{
                 
      try{
         
-      const emailTo = 'sumbomatic@gmail.com'
+      const emailTo = 'shinzbaba@gmail.com'
       const emailFrom = 'newsubscription@sitename.com'
       const name = 'Admn'
       const subject = 'New subscription alert'

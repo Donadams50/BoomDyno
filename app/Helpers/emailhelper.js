@@ -15,8 +15,8 @@ exports.emailUtility= async (emailFrom, emailTo, emailSubject,name, fullname, ad
             service: 'gmail',
         auth: {
             // should be replaced with real sender's account
-              user: process.env.user,
-            pass:  process.env.pass         
+              user: 'gigdonadams50@gmail.com',
+            pass:  'mathematics5@@@'         
         },
         });
   const handlebarsOptions= {

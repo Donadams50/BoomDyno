@@ -4,7 +4,7 @@ let responseGot = {}
 const dotenv=require('dotenv');
 
 dotenv.config();
-exports.emailUtility= async (emailFrom, emailTo, emailSubject,name, fullname, address, email, phoneNumber ) =>{
+exports.emailUtility= async (emailFrom, emailTo, emailSubject,adminname, name, message, email, phoneNumber ) =>{
    
         let resp= await wrapedSendMail();
          return resp;
@@ -39,9 +39,9 @@ exports.emailUtility= async (emailFrom, emailTo, emailSubject,name, fullname, ad
             text: emailSubject,
             template: 'index',
             context: {
+                adminname: adminname,
                 name: name,
-                fullname: fullname,
-                address: address,
+                message: message,
                 email: email,
                 phoneNumber: phoneNumber
                

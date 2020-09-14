@@ -18,7 +18,7 @@ const dotenv=require('dotenv');
 dotenv.config();
 
 
-app.post('/subcribtion', async(req, res) =>{
+app.post('/subscription', async(req, res) =>{
     console.log(req.body)
    
                 
@@ -26,14 +26,14 @@ app.post('/subcribtion', async(req, res) =>{
         
       const emailTo = 'shinzbaba@gmail.com'
       const emailFrom = 'newsubscription@sitename.com'
-      const name = 'Admn'
+      const adminname = 'Admin'
       const subject = 'New subscription alert'
-      const fullname = req.body.fullName
+      const name = req.body.name
       const email = req.body.email
       const phoneNumber = req.body.phoneNumber
-      const  address = req.body.address 
+      const  message = req.body.message 
      
-      processEmail(emailFrom, emailTo, subject,name, fullname, address, email, phoneNumber );
+      processEmail(emailFrom, emailTo, subject,adminname, name, message, email, phoneNumber );
         
           res.status(200).send({message:"Success "}) 
      }catch(err){
@@ -47,10 +47,10 @@ app.post('/subcribtion', async(req, res) =>{
 
 
 
-async function processEmail(emailFrom, emailTo, subject,name, fullname, address, email, phoneNumber ){
+async function processEmail(emailFrom, emailTo, subject,adminname, name, message, email, phoneNumber ){
     try{
        
-       const sendmail =  await sendemail.emailUtility(emailFrom, emailTo, subject,name, fullname, address, email, phoneNumber);
+       const sendmail =  await sendemail.emailUtility(emailFrom, emailTo, subject,adminname, name, message, email, phoneNumber);
        console.log(sendmail)
         return sendmail
     }catch(err){

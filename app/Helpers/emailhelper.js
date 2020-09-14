@@ -12,12 +12,20 @@ exports.emailUtility= async (emailFrom, emailTo, emailSubject,adminname, name, m
     async function wrapedSendMail(){
         return new Promise((resolve,reject)=>{
         let transport = nodemailer.createTransport({
-            service: 'gmail',
-        auth: {
-            // should be replaced with real sender's account
-              user: 'gigdonadams50@gmail.com',
-            pass:  'mathematics5@@@'         
-        },
+        //     service: 'gmail',
+        // auth: {
+            
+        //       user: 'gigdonadams50@gmail.com',
+        //     pass:  'mathematics5@@@'         
+        // },
+        // host: "mail.privateemail.com",
+         host: "server252.web-hosting.com",
+         port: 465,
+         secure: true, 
+         auth: {
+            user: 'admin@boomdyno.com', // generated ethereal user
+           pass: 'BoomDyno2020',
+        } 
         });
   const handlebarsOptions= {
       viewEngine:{

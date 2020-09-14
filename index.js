@@ -24,7 +24,7 @@ app.post('/subscription', async(req, res) =>{
                 
      try{
         
-      const emailTo = 'support@boomdyno.com'
+      const emailTo = 'admingit @boomdyno.com'
       const emailFrom = 'newsubscription@sitename.com'
       const adminname = 'Admin'
       const subject = 'New subscription alert'

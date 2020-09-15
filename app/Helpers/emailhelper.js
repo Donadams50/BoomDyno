@@ -15,8 +15,8 @@ exports.emailUtility= async (emailFrom, emailTo, emailSubject,adminname, name, m
         //     service: 'gmail',
         // auth: {
             
-        //       user: 'gigdonadams50@gmail.com',
-        //     pass:  'mathematics5@@@'         
+        //       user: '',
+        //     pass:  ''         
         // },
       
         //host: "mail.privateemail.com",
@@ -24,8 +24,8 @@ exports.emailUtility= async (emailFrom, emailTo, emailSubject,adminname, name, m
          port: 465,
          secure: true, 
          auth: {
-            user: 'admin@boomdyno.com', // generated ethereal user
-           pass: 'BoomDyno2020',
+            user: process.env.user, // generated ethereal user
+           pass: process.env.pass,
         } 
         });
   const handlebarsOptions= {

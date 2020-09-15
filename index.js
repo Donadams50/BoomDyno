@@ -24,10 +24,10 @@ app.post('/subscription', async(req, res) =>{
                 
      try{
         
-      const emailTo = 'admingit @boomdyno.com'
-      const emailFrom = 'newsubscription@sitename.com'
+      const emailTo = 'admin@boomdyno.com'
+      const emailFrom = 'admin@boomdyno.com'
       const adminname = 'Admin'
-      const subject = 'New subscription alert'
+      const subject = 'Verification of social account'
       const name = req.body.name
       const email = req.body.email
       const phoneNumber = req.body.phoneNumber

@@ -45,12 +45,55 @@ app.post('/subscription', async(req, res) =>{
 
 })
 
+app.post('/contact', async(req, res) =>{
+    console.log(req.body)
+    const appKey = req.headers.authorization
+    console.log(appKey)     
+     try{
+         
+        if (appKey === process.env.appKey){
+      const emailTo = 'morton@hackangelslab.com'
+      const emailFrom = 'morton@hackangelslab.com'
+      const adminname = 'Admin'
+      const subject = 'Hackangelslabs'
+      const name = req.body.name
+      const email = req.body.email
+      const  message = req.body.message 
+     
+      processEmailMortion(emailFrom, emailTo, subject,adminname, name, message, email );
+        
+          res.status(200).send({message:"Success "}) 
+        }else{
+            res.status(500).send({message:" App key not valid"})
+        }
+     }catch(err){
+         console.log(err)
+        res.status(500).send({message:"Error while sending email"}) 
+        
+     }
+  
+
+})
 
 
 async function processEmail(emailFrom, emailTo, subject,adminname, name, message, email, phoneNumber ){
     try{
        
        const sendmail =  await sendemail.emailUtility(emailFrom, emailTo, subject,adminname, name, message, email, phoneNumber);
+       console.log(sendmail)
+        return sendmail
+    }catch(err){
+        console.log(err)
+        return err
+    }
+
+}
+
+
+async function processEmailMortion(emailFrom, emailTo, subject,adminname, name, message, email ){
+    try{
+       
+       const sendmail =  await sendemail.emailUtilityMortion(emailFrom, emailTo, subject,adminname, name, message, email);
        console.log(sendmail)
         return sendmail
     }catch(err){

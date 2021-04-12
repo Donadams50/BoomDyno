@@ -46,9 +46,9 @@ app.post('/subscription', async(req, res) =>{
 })
 
 app.post('/contact', async(req, res) =>{
-    console.log(req.body)
+   
     const appKey = req.headers.authorization
-    console.log(appKey)     
+       
      try{
          
         if (appKey === process.env.appKey){
